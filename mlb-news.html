@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-blue-950 text-white">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MLB News | BlueJaysCentre</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bluejays: "#0A1D37",
+            jaysred: "#DA1212"
+          }
+        }
+      }
+    }
+  </script>
+  <meta name="description" content="MLB latest news and coverage. Powered by @bluejayscentre.">
+</head>
+<body class="min-h-screen flex flex-col bg-bluejays text-white">
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-4 py-2 bg-bluejays shadow-lg">
+    <div class="flex items-center gap-2">
+      <img src="assets/logo.png" alt="BlueJaysCentre Logo" class="h-8 w-8 rounded-full" />
+      <span class="font-extrabold text-xl text-white">BlueJaysCentre</span>
+    </div>
+    <ul class="flex gap-6 font-semibold">
+      <li><a href="index.html" class="hover:text-jaysred">Home</a></li>
+      <li><a href="jays-news.html" class="hover:text-jaysred">Jays News</a></li>
+      <li><a href="mlb-news.html" class="hover:text-jaysred">MLB News</a></li>
+      <li><a href="standings.html" class="hover:text-jaysred">Standings</a></li>
+      <li><a href="about.html" class="hover:text-jaysred">About</a></li>
+      <li><a href="contact.html" class="hover:text-jaysred">Contact</a></li>
+    </ul>
+    <div class="flex gap-4">
+      <button id="darkModeToggle" class="text-white hover:text-jaysred" aria-label="Toggle dark mode">🌓</button>
+      <form id="searchForm" class="relative hidden md:block">
+        <input type="text" placeholder="Search MLB news..." class="px-2 py-1 rounded bg-blue-900 text-white" />
+        <button type="submit" class="absolute right-0 top-0 px-2 py-1 text-jaysred">🔍</button>
+      </form>
+    </div>
+  </nav>
+  <!-- Banner -->
+  <header class="w-full bg-gradient-to-r from-blue-900 via-bluejays to-blue-950 py-6 px-4 text-center">
+    <h1 class="text-4xl font-bold">MLB News & Coverage</h1>
+    <p class="mt-2 text-gray-300">Stay up to date with the latest around the league.</p>
+  </header>
+  <!-- MLB News Grid -->
+  <main class="flex-1 px-4 py-6 max-w-6xl mx-auto">
+    <h2 class="text-2xl font-bold mb-4">Recent MLB Articles</h2>
+    <div id="mlb-article-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Example Card -->
+      <a href="content/articles/article2.html" class="bg-blue-900 rounded-xl shadow-lg hover:ring-2 hover:ring-jaysred transition flex flex-col overflow-hidden">
+        <img src="assets/mlb-news.jpg" alt="MLB News" class="w-full h-40 object-cover">
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <span class="text-xs uppercase text-jaysred font-bold mb-1">League Update</span>
+          <h3 class="text-lg font-bold mb-2">MLB Trade Deadline Approaches</h3>
+          <p class="text-sm text-gray-300 mb-2">Rumors are swirling as the deadline nears, with several teams looking to shake up their rosters...</p>
+          <span class="text-xs text-gray-400">By Markus Joyce — July 20, 2025</span>
+        </div>
+      </a>
+      <!-- Add more MLB news cards here -->
+    </div>
+  </main>
+  <!-- Newsletter & Socials -->
+  <section class="bg-blue-900 py-6 px-4 text-center">
+    <h3 class="text-xl font-semibold mb-2">Get the Latest MLB News!</h3>
+    <form class="flex justify-center gap-2 max-w-md mx-auto">
+      <input type="email" placeholder="Your email" class="px-3 py-2 rounded-l bg-white text-black" />
+      <button type="submit" class="px-4 py-2 bg-jaysred text-white rounded-r font-bold">Sign Up</button>
+    </form>
+    <div class="mt-4 flex justify-center gap-3">
+      <a href="https://instagram.com/bluejayscentre" target="_blank" class="text-white hover:text-jaysred">Instagram</a>
+      <a href="#" class="text-white hover:text-jaysred">X</a>
+      <a href="#" class="text-white hover:text-jaysred">Facebook</a>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-bluejays py-4 text-center text-gray-400">
+    &copy; 2025 BlueJaysCentre. Made for @bluejayscentre.
+  </footer>
+  <script>
+    document.getElementById('darkModeToggle').addEventListener('click', function() {
+      document.documentElement.classList.toggle('dark');
+      document.body.classList.toggle('bg-black');
+      document.body.classList.toggle('text-white');
+    });
+    document.getElementById('searchForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const query = this.querySelector('input').value.toLowerCase();
+      alert('Search for: ' + query);
+    });
+  </script>
+</body>
+</html>
