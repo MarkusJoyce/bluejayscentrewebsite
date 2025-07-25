@@ -1,0 +1,1 @@
+Put all images, logos (e.g., logo.png), favicon.ico, and other media in this folder.

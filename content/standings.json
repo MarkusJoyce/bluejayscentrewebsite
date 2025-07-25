@@ -1,0 +1,12 @@
+{
+  "AL": [
+    {"team": "Blue Jays", "wins": 56, "losses": 44, "win_pct": 0.560, "games_back": 2.5},
+    {"team": "Yankees", "wins": 58, "losses": 42, "win_pct": 0.580, "games_back": 0}
+    // ... more teams
+  ],
+  "NL": [
+    {"team": "Dodgers", "wins": 60, "losses": 40, "win_pct": 0.600, "games_back": 0},
+    {"team": "Braves", "wins": 58, "losses": 42, "win_pct": 0.580, "games_back": 2}
+    // ... more teams
+  ]
+}

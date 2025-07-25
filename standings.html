@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-blue-950 text-white">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MLB Standings | BlueJaysCentre</title>
+  <link rel="icon" href="/assets/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+  <script defer src="/scripts/standings.js"></script>
+</head>
+<body class="min-h-screen bg-[#0A1D37] text-white">
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-4 py-2 bg-[#0A1D37] shadow-lg">
+    <div class="flex items-center gap-2">
+      <img src="/assets/logo.png" alt="BlueJaysCentre Logo" class="h-8 w-8 rounded-full" />
+      <span class="font-extrabold text-xl text-white">BlueJaysCentre</span>
+    </div>
+    <ul class="flex gap-6 font-semibold">
+      <li><a href="index.html" class="hover:text-[#DA1212]">Home</a></li>
+      <li><a href="jays-news.html" class="hover:text-[#DA1212]">Jays News</a></li>
+      <li><a href="mlb-news.html" class="hover:text-[#DA1212]">MLB News</a></li>
+      <li><a href="standings.html" class="hover:text-[#DA1212]">Standings</a></li>
+      <li><a href="about.html" class="hover:text-[#DA1212]">About</a></li>
+      <li><a href="contact.html" class="hover:text-[#DA1212]">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold mb-6">MLB Standings</h1>
+    <div class="mb-4 flex gap-4">
+      <button id="sortWins" class="px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800">Sort by Wins</button>
+      <button id="sortLosses" class="px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800">Sort by Losses</button>
+      <button id="sortWinPct" class="px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800">Sort by Win %</button>
+    </div>
+    <div id="standings-table">
+      <!-- JS will inject standings table here from standings.json -->
+    </div>
+  </main>
+  <footer class="bg-[#0A1D37] py-4 text-center text-gray-400">
+    &copy; 2025 BlueJaysCentre
+  </footer>
+</body>
+</html>
