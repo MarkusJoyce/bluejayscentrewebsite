@@ -4,39 +4,108 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MLB Standings | BlueJaysCentre</title>
-  <link rel="icon" href="/assets/favicon.ico">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
-  <script defer src="/scripts/standings.js"></script>
+  <link rel="icon" href="assets/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bluejays: "#0A1D37",
+            jaysred: "#DA1212"
+          }
+        }
+      }
+    }
+  </script>
+  <meta name="description" content="MLB standings, sortable table for AL and NL. Powered by @bluejayscentre.">
 </head>
-<body class="min-h-screen bg-[#0A1D37] text-white">
+<body class="min-h-screen flex flex-col bg-bluejays text-white">
   <!-- Navbar -->
-  <nav class="flex justify-between items-center px-4 py-2 bg-[#0A1D37] shadow-lg">
+  <nav class="flex justify-between items-center px-4 py-2 bg-bluejays shadow-lg">
     <div class="flex items-center gap-2">
-      <img src="/assets/logo.png" alt="BlueJaysCentre Logo" class="h-8 w-8 rounded-full" />
+      <img src="assets/logo.png" alt="BlueJaysCentre Logo" class="h-8 w-8 rounded-full" />
       <span class="font-extrabold text-xl text-white">BlueJaysCentre</span>
     </div>
     <ul class="flex gap-6 font-semibold">
-      <li><a href="index.html" class="hover:text-[#DA1212]">Home</a></li>
-      <li><a href="jays-news.html" class="hover:text-[#DA1212]">Jays News</a></li>
-      <li><a href="mlb-news.html" class="hover:text-[#DA1212]">MLB News</a></li>
-      <li><a href="standings.html" class="hover:text-[#DA1212]">Standings</a></li>
-      <li><a href="about.html" class="hover:text-[#DA1212]">About</a></li>
-      <li><a href="contact.html" class="hover:text-[#DA1212]">Contact</a></li>
+      <li><a href="index.html" class="hover:text-jaysred">Home</a></li>
+      <li><a href="jays-news.html" class="hover:text-jaysred">Jays News</a></li>
+      <li><a href="mlb-news.html" class="hover:text-jaysred">MLB News</a></li>
+      <li><a href="standings.html" class="hover:text-jaysred">Standings</a></li>
+      <li><a href="about.html" class="hover:text-jaysred">About</a></li>
+      <li><a href="contact.html" class="hover:text-jaysred">Contact</a></li>
     </ul>
-  </nav>
-  <main class="max-w-4xl mx-auto px-4 py-10">
-    <h1 class="text-3xl font-bold mb-6">MLB Standings</h1>
-    <div class="mb-4 flex gap-4">
-      <button id="sortWins" class="px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800">Sort by Wins</button>
-      <button id="sortLosses" class="px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800">Sort by Losses</button>
-      <button id="sortWinPct" class="px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800">Sort by Win %</button>
+    <div class="flex gap-4">
+      <button id="darkModeToggle" class="text-white hover:text-jaysred" aria-label="Toggle dark mode">🌓</button>
     </div>
-    <div id="standings-table">
-      <!-- JS will inject standings table here from standings.json -->
+  </nav>
+  <!-- Banner -->
+  <header class="w-full bg-gradient-to-r from-blue-900 via-bluejays to-blue-950 py-6 px-4 text-center">
+    <h1 class="text-4xl font-bold">MLB Standings</h1>
+    <p class="mt-2 text-gray-300">Sortable table of AL & NL teams. Updated regularly.</p>
+  </header>
+  <!-- Standings Table Demo -->
+  <main class="flex-1 px-4 py-6 max-w-4xl mx-auto">
+    <div class="mb-4 flex gap-4">
+      <button class="px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800">Sort by Wins</button>
+      <button class="px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800">Sort by Losses</button>
+      <button class="px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800">Sort by Win %</button>
+    </div>
+    <!-- Hardcoded example table for immediate demo -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-blue-900 rounded-lg">
+        <thead>
+          <tr>
+            <th class="px-4 py-2 text-left">Team</th>
+            <th class="px-4 py-2 text-left">Wins</th>
+            <th class="px-4 py-2 text-left">Losses</th>
+            <th class="px-4 py-2 text-left">Win %</th>
+            <th class="px-4 py-2 text-left">Games Back</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-4 py-2">Blue Jays</td>
+            <td class="px-4 py-2">56</td>
+            <td class="px-4 py-2">44</td>
+            <td class="px-4 py-2">.560</td>
+            <td class="px-4 py-2">2.5</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2">Yankees</td>
+            <td class="px-4 py-2">58</td>
+            <td class="px-4 py-2">42</td>
+            <td class="px-4 py-2">.580</td>
+            <td class="px-4 py-2">0</td>
+          </tr>
+          <!-- Add more teams here -->
+        </tbody>
+      </table>
     </div>
   </main>
-  <footer class="bg-[#0A1D37] py-4 text-center text-gray-400">
-    &copy; 2025 BlueJaysCentre
+  <!-- Newsletter & Socials -->
+  <section class="bg-blue-900 py-6 px-4 text-center">
+    <h3 class="text-xl font-semibold mb-2">Get the Latest Jays News!</h3>
+    <form class="flex justify-center gap-2 max-w-md mx-auto">
+      <input type="email" placeholder="Your email" class="px-3 py-2 rounded-l bg-white text-black" />
+      <button type="submit" class="px-4 py-2 bg-jaysred text-white rounded-r font-bold">Sign Up</button>
+    </form>
+    <div class="mt-4 flex justify-center gap-3">
+      <a href="https://instagram.com/bluejayscentre" target="_blank" class="text-white hover:text-jaysred">Instagram</a>
+      <a href="#" class="text-white hover:text-jaysred">X</a>
+      <a href="#" class="text-white hover:text-jaysred">Facebook</a>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-bluejays py-4 text-center text-gray-400">
+    &copy; 2025 BlueJaysCentre. Made for @bluejayscentre.
   </footer>
+  <script>
+    document.getElementById('darkModeToggle').addEventListener('click', function() {
+      document.documentElement.classList.toggle('dark');
+      document.body.classList.toggle('bg-black');
+      document.body.classList.toggle('text-white');
+    });
+  </script>
 </body>
 </html>
