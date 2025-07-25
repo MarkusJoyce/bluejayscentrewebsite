@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BlueJaysCentre | Toronto Blue Jays & MLB News</title>
   <link rel="icon" href="assets/favicon.ico">
-  <!-- Tailwind CDN for instant GitHub Pages compatibility -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Custom Tailwind config for branding
     tailwind.config = {
       theme: {
         extend: {
@@ -56,7 +54,6 @@
   <main class="flex-1 px-4 py-6 max-w-6xl mx-auto">
     <h2 class="text-2xl font-bold mb-4">Recent Articles</h2>
     <div id="article-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- JS will inject article cards here -->
       <!-- Example Card for Immediate Demo -->
       <a href="content/articles/article1.html" class="bg-blue-900 rounded-xl shadow-lg hover:ring-2 hover:ring-jaysred transition flex flex-col overflow-hidden">
         <img src="assets/jays-win.jpg" alt="Blue Jays Win" class="w-full h-40 object-cover">
@@ -87,14 +84,12 @@
   <footer class="bg-bluejays py-4 text-center text-gray-400">
     &copy; 2025 BlueJaysCentre. Made for @bluejayscentre.
   </footer>
-  <!-- Simple JS for demo: dark mode toggle -->
   <script>
     document.getElementById('darkModeToggle').addEventListener('click', function() {
       document.documentElement.classList.toggle('dark');
       document.body.classList.toggle('bg-black');
       document.body.classList.toggle('text-white');
     });
-    // Search bar demo (alerts search)
     document.getElementById('searchForm')?.addEventListener('submit', function(e) {
       e.preventDefault();
       const query = this.querySelector('input').value.toLowerCase();
